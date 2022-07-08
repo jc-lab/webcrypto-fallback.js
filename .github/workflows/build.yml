@@ -17,15 +17,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Get protobuf version
-        run: |
-          npm install -g js-yaml
-          export protobuf_version="$(node util/get-protobuf-version.js)"
-          echo "protobuf_version=${protobuf_version}" | tee -a $GITHUB_ENV
-      - name: Setup protobuf
-        uses: arduino/setup-protoc@v1
-        with:
-          version: ${{ env.protobuf_version }}
       - name: Install dependencies
         run: yarn install
       - name: Build
