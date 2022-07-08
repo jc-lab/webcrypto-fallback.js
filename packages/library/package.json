@@ -1,0 +1,24 @@
+{
+  "name": "webcrypto-fallback",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jc-lab/webcrypto-fallback.js.git"
+  },
+  "author": "Joseph Lee <joseph@jc-lab.net>",
+  "bugs": {
+    "url": "https://github.com/jc-lab/webcrypto-fallback.js/issues"
+  },
+  "homepage": "https://github.com/jc-lab/webcrypto-fallback.js#readme",
+  "description": "",
+  "dependencies": {
+    "asmcrypto.js": "^2.3.2",
+    "elliptic": "^6.5.4",
+    "webcrypto-liner": "^1.4.0"
+  }
+}

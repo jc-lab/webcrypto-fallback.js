@@ -1,0 +1,26 @@
+{
+  "name": "test-browser",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jc-lab/webcrypto-fallback.js.git"
+  },
+  "author": "Joseph Lee <joseph@jc-lab.net>",
+  "bugs": {
+    "url": "https://github.com/jc-lab/webcrypto-fallback.js/issues"
+  },
+  "homepage": "https://github.com/jc-lab/webcrypto-fallback.js#readme",
+  "description": "",
+  "dependencies": {
+    "webcrypto-fallback": "workspace:^"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "babel-loader": "^8.2.5"
+  }
+}
