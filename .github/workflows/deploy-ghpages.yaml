@@ -1,22 +1,24 @@
-name: Build
-on: [push, pull_request]
+name: Github Pages Deploy
+on:
+  push:
+    branches:
+      - master
 jobs:
   node-build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ["12", "14", "16"]
-      fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set Environment Variables
         run: |
-          echo "runner_arch=$(uname -m)" >> $GITHUB_ENV
-      - name: Use Node.js ${{ matrix.node-version }}
+          echo "runner_arch=$(uname -m)" | tee -a $GITHUB_ENV
+          echo "package_version=${GITHUB_REF#refs/*/v}" | tee -a $GITHUB_ENV
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "16"
+      - name: Set version
+        run: node ./.ci/node-set-version.js --package-json package.json ${{ env.package_version }}
       - name: Get protobuf version
         run: |
           npm install -g js-yaml
@@ -32,7 +34,8 @@ jobs:
         run: |
           yarn workspace webcrypto-fallback build
           yarn workspace test-browser build
-      - uses: actions/upload-artifact@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: test-browser
-          path: packages/test-browser/dist/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/test-browser/dist/

@@ -31,10 +31,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run: yarn build
+        run: |
+          yarn workspace webcrypto-fallback build
       - name: Publish
         run: |
           npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          npm publish --access=public
+          cd packages/webcrypto-fallback && npm publish --access=public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
