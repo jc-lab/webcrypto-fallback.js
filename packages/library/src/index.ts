@@ -59,8 +59,6 @@ export function shim(window: any) {
     };
   }
 
-  console.log('webcryptoLiner: ', webcryptoLiner);
-
   try {
     delete (window as any).crypto;
     window.crypto = new webcryptoLiner.Crypto();
