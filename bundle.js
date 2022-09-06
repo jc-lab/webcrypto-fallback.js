@@ -84,6 +84,13 @@ function shim(window) {
   } catch (e) {
     console.error(e);
   }
+
+  try {
+    window.CryptoKey = webcryptoLiner.CryptoKey;
+    Object.freeze(window.CryptoKey);
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 exports.shim = shim;
