@@ -66,4 +66,11 @@ export function shim(window: any) {
   } catch (e) {
     console.error(e);
   }
+
+  try {
+    window.CryptoKey = webcryptoLiner.CryptoKey;
+    Object.freeze(window.CryptoKey);
+  } catch (e) {
+    console.error(e);
+  }
 }
