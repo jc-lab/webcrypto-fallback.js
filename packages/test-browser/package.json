@@ -16,7 +16,8 @@
   "homepage": "https://github.com/jc-lab/webcrypto-fallback.js#readme",
   "description": "",
   "dependencies": {
-    "webcrypto-fallback": "workspace:^"
+    "webcrypto-fallback": "workspace:^",
+    "webcrypto-liner": "^1.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

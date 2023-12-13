@@ -16,9 +16,10 @@
   },
   "homepage": "https://github.com/jc-lab/webcrypto-fallback.js#readme",
   "description": "",
-  "dependencies": {
-    "asmcrypto.js": "^2.3.2",
-    "elliptic": "^6.5.4",
-    "webcrypto-liner": "^1.4.0"
+  "peerDependencies": {
+    "webcrypto-liner": "^1.4.2"
+  },
+  "devDependencies": {
+    "webcrypto-liner": "^1.4.2"
   }
 }
